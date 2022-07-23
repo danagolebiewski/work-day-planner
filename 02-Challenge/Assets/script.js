@@ -4,7 +4,7 @@ $("#currentDay").text(today.format("MMM Do, YYYY h:mm:ss a"));
 
 $("saveBtn").on("click", function () {
 console.log(this);
-var text = $(this).siblings("desripction").val();
+var text = $(this).siblings("description").val();
 var time = $(this).parent().attr("id");
 
 // adding items to local storage
@@ -23,8 +23,8 @@ $("#hour15 .description").val(localStorage.getItem("hour15"));
 $("#hour16 .description").val(localStorage.getItem("hour16"));
 $("#hour17 .description").val(localStorage.getItem("hour17"));
 
-function hourTracker() {
 
+function hourTracker() {
   var currentHour = moment().hour(); 
 
   $(".time-block").each(function() {
@@ -33,7 +33,6 @@ function hourTracker() {
   
 
   // use these if/else statements to change the color of the hour blocks
-
   if (blockHour < currentHour) {
     $(this).addClass("past");
     $(this).removeClass("future");
@@ -53,10 +52,3 @@ function hourTracker() {
 }
 // Run the function
 hourTracker();
-sessionStorage.setItem('time-block', 1);
-sessionStorage.getItem('time-block');
-
-
-// WHEN I refresh the page
-// THEN the saved events persist
-
